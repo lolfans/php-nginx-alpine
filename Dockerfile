@@ -1,23 +1,6 @@
-#https://mirrors.aliyun.com/alpine/
 FROM php:7.4.10-fpm-alpine3.12
 
-MAINTAINER lolfans <313273766@qq.com>
-
-RUN echo '@community https://mirrors.aliyun.com/alpine/edge/community' >> /etc/apk/repositories
-
-
-RUN apk update && apk upgrade && apk add \
-	    php7-pdo_mysql@community \
-	    php7-pdo_pgsql@community \
-	    php7-phar@community \
-	    php7-simplexml@community \
-	    php7-mcrypt@community \
-	    php7-xsl@community \
-	    php7-zip@community \
-	    php7-dom@community \
-	    php7-redis@community\
-	    php7-gd@community \
-		&& rm -rf /var/cache/apk/*
+RUN docker-php-ext-install pdo_mysql pdo_pgsql phar simplexml mcrypt xsl zip dom redis gd
 	
 #NGINX
 RUN apk add nginx
