@@ -1,5 +1,7 @@
 # php-nginx-alpine
+
 以php官方镜像为主再集成其他相关
+
 制作NGINX+PHP环境镜像的方式 将代码克隆到docker环境的主机
 
 git clone https://github.com/lolfans/php-nginx-alpine.git
