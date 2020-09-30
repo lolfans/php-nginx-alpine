@@ -1,6 +1,7 @@
 FROM php:7.4.10-fpm-alpine3.12
 
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
+RUN apk add --no-cache autoconf g++ libtool make curl-dev libxml2-dev linux-headers
 
 RUN docker-php-source extract \
     && docker-php-ext-install bcmath \
@@ -8,6 +9,14 @@ RUN docker-php-source extract \
     && docker-php-ext-install mysqli \
     && docker-php-ext-install pdo_mysql \
     && docker-php-ext-install sockets \
+    && docker-php-ext-install zip \
+    && docker-php-ext-install exif \
+    && apk add --no-cache gettext-dev && docker-php-ext-install gettext \
+    && apk add --no-cache bzip2-dev && docker-php-ext-install bz2 \
+    && docker-php-ext-install shmop \
+    && apk add --no-cache libxslt-dev && docker-php-ext-install xsl \
+    && apk add --no-cache libxslt-dev && docker-php-ext-install wddx \
+    && docker-php-ext-install mysql
     && docker-php-source delete
 	
 #RUN pecl install redis \
