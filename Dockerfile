@@ -11,6 +11,7 @@ RUN docker-php-source extract \
     docker-php-ext-install opcache \
     docker-php-ext-install sockets \
     docker-php-ext-install zip \
+    && docker-php-ext-enable bcmath bz2 calendar mysqli pdo_mysql opcache sockets zip \
     && docker-php-source delete
 	
 #RUN pecl install redis \
