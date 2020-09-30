@@ -5,14 +5,6 @@ MAINTAINER lolfans <313273766@qq.com>
 
 RUN echo '@community https://mirrors.aliyun.com/alpine/edge/community' >> /etc/apk/repositories
 
-# Environments
-ENV TIMEZONE            Asia/Shanghai
-ENV PHP_MEMORY_LIMIT    512M
-ENV MAX_UPLOAD          50M
-ENV PHP_MAX_FILE_UPLOAD 200
-ENV PHP_MAX_POST        100M
-ENV COMPOSER_ALLOW_SUPERUSER 1
-
 
 RUN apk update && apk upgrade && apk add \
 	    php7-pdo_mysql@community \
@@ -26,16 +18,6 @@ RUN apk update && apk upgrade && apk add \
 	    php7-redis@community\
 	    php7-gd@community \
 		&& rm -rf /var/cache/apk/*
-
-RUN sed -i "s|;*date.timezone =.*|date.timezone = ${TIMEZONE}|i" /etc/php7/php.ini && \
-	sed -i "s|;*memory_limit =.*|memory_limit = ${PHP_MEMORY_LIMIT}|i" /etc/php7/php.ini && \
-	sed -i "s|;*upload_max_filesize =.*|upload_max_filesize = ${MAX_UPLOAD}|i" /etc/php7/php.ini && \
-	sed -i "s|;*max_file_uploads =.*|max_file_uploads = ${PHP_MAX_FILE_UPLOAD}|i" /etc/php7/php.ini && \
-	sed -i "s|;*post_max_size =.*|post_max_size = ${PHP_MAX_POST}|i" /etc/php7/php.ini && \
-	sed -i "s|;*cgi.fix_pathinfo=.*|cgi.fix_pathinfo= 0|i" /etc/php7/php.ini
-	
-ENV LD_PRELOAD /usr/lib/preloadable_libiconv.so php	
-	
 	
 #NGINX
 RUN apk add nginx
