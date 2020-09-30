@@ -25,9 +25,6 @@ RUN apk update && apk upgrade && apk add \
 	    php7-dom@community \
 	    php7-redis@community\
 	    php7-gd@community \
-		&& cp /usr/share/zoneinfo/${TIMEZONE} /etc/localtime \
-		&& echo "${TIMEZONE}" > /etc/timezone \
-		&& apk del tzdata \
 		&& rm -rf /var/cache/apk/*
 
 RUN sed -i "s|;*date.timezone =.*|date.timezone = ${TIMEZONE}|i" /etc/php7/php.ini && \
