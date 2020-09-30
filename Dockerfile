@@ -1,6 +1,6 @@
 FROM php:7.4.10-fpm-alpine3.12
 
-RUN docker-php-ext-install pdo_mysql pdo_pgsql phar simplexml mcrypt xsl zip dom redis gd
+RUN docker-php-ext-install  redis gd
 	
 #NGINX
 RUN apk add nginx
