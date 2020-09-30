@@ -12,6 +12,7 @@ RUN docker-php-source extract \
     && docker-php-ext-install exif \
     && apk add --no-cache gettext-dev && docker-php-ext-install gettext \
     && apk add --no-cache bzip2-dev && docker-php-ext-install bz2 \
+    && rm -rf /var/cache/apk/* \
     && docker-php-source delete
 	
 #RUN pecl install redis \
@@ -33,13 +34,13 @@ COPY ./supervisor/conf.d /etc/supervisor/conf.d
 COPY ./crontabs/default /var/spool/cron/crontabs/
 
 
-#COPY ./php/index.php /var/www/html/
-#COPY ./php/php-fpm.conf /etc/php7/
-#COPY ./php/www.conf /etc/php7/php-fpm.d/
+COPY ./php/index.php /var/www/html/
+COPY ./php/php-fpm.conf /etc/php7/
+COPY ./php/www.conf /etc/php7/php-fpm.d/
 
-#COPY ./nginx/default.conf /etc/nginx/conf.d/
-#COPY ./nginx/ssl.default.config /etc/nginx/conf.d/
-#COPY ./nginx/nginx.conf /etc/nginx/
+COPY ./nginx/default.conf /etc/nginx/conf.d/
+COPY ./nginx/ssl.default.config /etc/nginx/conf.d/
+COPY ./nginx/nginx.conf /etc/nginx/
 
 WORKDIR /var/www/html/
 
