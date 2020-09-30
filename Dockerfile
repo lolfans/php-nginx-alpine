@@ -1,5 +1,5 @@
 FROM php:7.4.10-fpm-alpine3.12
-RUN docker-php-ext-install pdo pdo_mysql mcrypt zip gd pcntl opcache bcmath
+RUN docker-php-ext-install pdo_mysql mcrypt zip gd pcntl opcache bcmath
 	
 #NGINX
 #RUN apk add nginx
