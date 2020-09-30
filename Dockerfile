@@ -4,7 +4,6 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 
 RUN docker-php-source extract \
     && docker-php-ext-install bcmath \
-    && docker-php-ext-install bz2 \
     && docker-php-ext-install calendar \
     && docker-php-ext-install mysqli \
     && docker-php-ext-install pdo_mysql \
