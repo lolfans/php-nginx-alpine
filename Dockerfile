@@ -29,18 +29,16 @@ RUN apk add supervisor && rm -rf /var/cache/apk/*
 RUN curl -sS http://getcomposer.org.mirrors.china-speed.org.cn/installer | \
 php -- --install-dir=/usr/bin/ --filename=composer
 	
-	
 COPY ./supervisor/conf.d /etc/supervisor/conf.d	
 COPY ./crontabs/default /var/spool/cron/crontabs/
 
+#COPY ./php/index.php /var/www/html/
+#COPY ./php/php-fpm.conf /etc/php7/
+#COPY ./php/www.conf /etc/php7/php-fpm.d/
 
-COPY ./php/index.php /var/www/html/
-COPY ./php/php-fpm.conf /etc/php7/
-COPY ./php/www.conf /etc/php7/php-fpm.d/
-
-COPY ./nginx/default.conf /etc/nginx/conf.d/
-COPY ./nginx/ssl.default.conf /etc/nginx/conf.d/
-COPY ./nginx/nginx.conf /etc/nginx/
+#COPY ./nginx/default.conf /etc/nginx/conf.d/
+#COPY ./nginx/ssl.default.conf /etc/nginx/conf.d/
+#COPY ./nginx/nginx.conf /etc/nginx/
 
 WORKDIR /var/www/html/
 
