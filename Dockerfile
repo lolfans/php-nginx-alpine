@@ -2,8 +2,10 @@ FROM php:7.4.10-fpm-alpine3.12
 
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 
-RUN docker-php-ext-install calendar \
-    docker-php-ext-install pdo_mysql \
+RUN docker-php-source extract \ 
+    && docker-php-ext-install calendar \
+    && docker-php-ext-install pdo_mysql \
+    && docker-php-source delete
 
 
 	
