@@ -9,7 +9,6 @@ RUN docker-php-source extract \
     && docker-php-ext-install mysqli \
     && docker-php-ext-install pdo_mysql \
     && docker-php-ext-install sockets \
-    && docker-php-ext-install zip \
     && docker-php-ext-install exif \
     && apk add --no-cache gettext-dev && docker-php-ext-install gettext \
     && apk add --no-cache bzip2-dev && docker-php-ext-install bz2 \
