@@ -12,10 +12,6 @@ RUN docker-php-source extract \
     && docker-php-ext-install exif \
     && apk add --no-cache gettext-dev && docker-php-ext-install gettext \
     && apk add --no-cache bzip2-dev && docker-php-ext-install bz2 \
-    && docker-php-ext-install shmop \
-    && apk add --no-cache libxslt-dev && docker-php-ext-install xsl \
-    && apk add --no-cache libxslt-dev && docker-php-ext-install wddx \
-    && docker-php-ext-install mysql \
     && docker-php-source delete
 	
 #RUN pecl install redis \
