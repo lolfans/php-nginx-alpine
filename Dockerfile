@@ -1,6 +1,6 @@
 FROM php:7.4.10-fpm-alpine3.12
 
-RUN docker-php-ext-install  redis gd
+RUN docker-php-ext-install  redis 
 	
 #NGINX
 RUN apk add nginx
