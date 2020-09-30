@@ -8,7 +8,6 @@ RUN docker-php-source extract \
     docker-php-ext-install calendar \
     docker-php-ext-install mysqli \
     docker-php-ext-install pdo_mysql \
-    docker-php-ext-install opcache \
     docker-php-ext-install sockets \
     docker-php-ext-install zip \
     && docker-php-ext-enable bcmath \        
