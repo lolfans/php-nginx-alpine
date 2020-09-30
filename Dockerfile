@@ -13,9 +13,9 @@ RUN docker-php-source extract \
     docker-php-ext-install zip \
     && docker-php-source delete
 	
-RUN pecl install redis \
-	&& pecl install memcached \
-	&& docker-php-ext-enable redis memcached
+#RUN pecl install redis \
+#	&& pecl install memcached \
+#	&& docker-php-ext-enable redis memcached
 
 #NGINX
 RUN apk add nginx
