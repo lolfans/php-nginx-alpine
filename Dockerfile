@@ -2,12 +2,15 @@ FROM php:7.4.10-fpm-alpine3.12
 
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 
-RUN docker-php-source extract \ 
+RUN docker-php-source extract \
+    && docker-php-ext-install bcmath \
+    && docker-php-ext-install bz2 \
     && docker-php-ext-install calendar \
+    && docker-php-ext-install mysqli \
     && docker-php-ext-install pdo_mysql \
+    && docker-php-ext-install sockets \
+    && docker-php-ext-install zip \
     && docker-php-source delete
-
-
 	
 #RUN pecl install redis \
 #	&& pecl install memcached \
