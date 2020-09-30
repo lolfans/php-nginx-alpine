@@ -15,7 +15,6 @@ ENV COMPOSER_ALLOW_SUPERUSER 1
 
 
 RUN apk update && apk upgrade && apk add \
-		gnu-libiconv@community \
 		curl \
 		tzdata \
 	    php7@community \
