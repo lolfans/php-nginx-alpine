@@ -16,7 +16,7 @@ RUN docker-php-source extract \
     && docker-php-ext-install shmop \
     && apk add --no-cache libxslt-dev && docker-php-ext-install xsl \
     && apk add --no-cache libxslt-dev && docker-php-ext-install wddx \
-    && docker-php-ext-install mysql
+    && docker-php-ext-install mysql \
     && docker-php-source delete
 	
 #RUN pecl install redis \
