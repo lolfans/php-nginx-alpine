@@ -36,6 +36,7 @@ COPY ./crontabs/default /var/spool/cron/crontabs/
 #COPY ./php/php-fpm.conf /etc/php7/
 #COPY ./php/www.conf /etc/php7/php-fpm.d/
 
+RUN mkdir -p /run/nginx
 #COPY ./nginx/default.conf /etc/nginx/conf.d/
 #COPY ./nginx/ssl.default.conf /etc/nginx/conf.d/
 #COPY ./nginx/nginx.conf /etc/nginx/
